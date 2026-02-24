@@ -1,0 +1,2 @@
+Create a portfolio tabs in the portfolio page and for now use mock data portfolio for categories like Website development,UI/UX Design,AI integration and Graphics etc
+There is a reference design in the public/images/portfolio 
