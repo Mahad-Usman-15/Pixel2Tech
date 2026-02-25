@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import faqs from '../data/faqs';
+import FAQSchema from './FAQSchema';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -35,7 +36,10 @@ export default function FAQSection({ faqsData }) {
   };
 
   return (
-    <section className="py-10 bg-gray-50 sm:py-16 lg:py-24">
+    <section className="py-10 bg-gray-50 sm:py-16 lg:py-24" id="faqs">
+      {/* FAQ Structured Data for SEO */}
+      <FAQSchema faqs={faqsToUse} />
+
       <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
         <div className="max-w-2xl mx-auto text-center">
           <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">
@@ -105,7 +109,7 @@ export default function FAQSection({ faqsData }) {
         </motion.div>
 
         <p className="text-center text-gray-600 text-base mt-9">
-          Didn't find the answer you are looking for?{' '}
+          Didn&apos;t find the answer you are looking for?{' '}
           <a
             href="/contact"
             className="font-medium text-blue-600 transition-all duration-200 hover:text-blue-700 hover:underline"

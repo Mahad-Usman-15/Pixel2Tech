@@ -41,7 +41,7 @@ export default function AboutSection() {
             <Image
               src="/images/ai.jpg"
               className="w-full h-full object-cover rounded-lg shadow-xl"
-              alt="hero-img"
+              alt="AI-powered technology and digital innovation at Pixel2Tech creative agency"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
               priority

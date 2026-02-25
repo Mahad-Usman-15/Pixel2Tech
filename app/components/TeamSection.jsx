@@ -53,7 +53,7 @@ export default function TeamSection() {
             <div className="relative w-full h-[260px] rounded-2xl overflow-hidden">
               <Image
                 src="/images/team-group.jpg"
-                alt="Team"
+                alt="Pixel2Tech remote team collaborating on digital projects"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
                 className="object-cover"
@@ -72,7 +72,7 @@ export default function TeamSection() {
               <div className="relative w-full h-[240px] rounded-xl overflow-hidden mb-5">
                 <Image
                   src={member.image}
-                  alt={member.name}
+                  alt={member.alt || `${member.name} - ${member.role} at Pixel2Tech`}
                   fill
                   sizes="(max-width: 768px) 200px, 250px"
                   className="object-cover"
