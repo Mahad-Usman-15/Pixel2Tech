@@ -355,9 +355,9 @@ function TwoRowHorizontalMarquee({ items, onItemHover, onItemClick }) {
   const row2Items = items.filter((_, i) => i % 2 === 1);
 
   return (
-    <div className="flex flex-col gap-4 w-full">
+    <div className="flex flex-col gap-3 w-full overflow-hidden">
       {/* Top Row - Scroll Left */}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden w-full">
         <motion.div
           initial={{ x: 0 }}
           animate={{ x: '-50%' }}
@@ -367,7 +367,7 @@ function TwoRowHorizontalMarquee({ items, onItemHover, onItemClick }) {
             repeatType: 'loop',
             ease: 'linear',
           }}
-          className="flex gap-4"
+          className="flex gap-2"
         >
           {[...row1Items, ...row1Items].map((item, index) => (
             <motion.div
@@ -376,10 +376,10 @@ function TwoRowHorizontalMarquee({ items, onItemHover, onItemClick }) {
               animate={{ opacity: 1 }}
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.2 }}
-              onMouseEnter={() => onHoverChange('Expand+')}
-              onMouseLeave={() => onHoverChange(null)}
+              onMouseEnter={() => onItemHover('Expand+')}
+              onMouseLeave={() => onItemHover(null)}
               onClick={() => onItemClick(item)}
-              className="relative w-56 sm:w-64 flex-shrink-0 cursor-pointer group"
+              className="relative w-40 xs:w-48 flex-shrink-0 cursor-pointer group"
             >
               <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 shadow-lg">
                 <div className="aspect-[4/3] overflow-hidden">
@@ -390,16 +390,16 @@ function TwoRowHorizontalMarquee({ items, onItemHover, onItemClick }) {
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <span className="text-xs font-medium text-blue-400 uppercase tracking-wider">
+                <div className="absolute bottom-0 left-0 right-0 p-2.5">
+                  <span className="text-[10px] font-medium text-blue-400 uppercase tracking-wider">
                     {item.category}
                   </span>
-                  <h3 className="text-white font-semibold mt-1 text-sm line-clamp-2">
+                  <h3 className="text-white font-semibold mt-1 text-xs line-clamp-2">
                     {item.title}
                   </h3>
                 </div>
-                <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-blue-600/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ArrowRight className="w-3.5 h-3.5 text-white" />
+                <div className="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-blue-600/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <ArrowRight className="w-3 h-3 text-white" />
                 </div>
               </div>
             </motion.div>
@@ -408,7 +408,7 @@ function TwoRowHorizontalMarquee({ items, onItemHover, onItemClick }) {
       </div>
 
       {/* Bottom Row - Scroll Right */}
-      <div className="overflow-hidden">
+      <div className="overflow-hidden w-full">
         <motion.div
           initial={{ x: '-50%' }}
           animate={{ x: 0 }}
@@ -418,7 +418,7 @@ function TwoRowHorizontalMarquee({ items, onItemHover, onItemClick }) {
             repeatType: 'loop',
             ease: 'linear',
           }}
-          className="flex gap-4"
+          className="flex gap-2"
         >
           {[...row2Items, ...row2Items].map((item, index) => (
             <motion.div
@@ -427,10 +427,10 @@ function TwoRowHorizontalMarquee({ items, onItemHover, onItemClick }) {
               animate={{ opacity: 1 }}
               whileHover={{ scale: 1.05, y: -5 }}
               transition={{ duration: 0.2 }}
-              onMouseEnter={() => onHoverChange('Expand+')}
-              onMouseLeave={() => onHoverChange(null)}
+              onMouseEnter={() => onItemHover('Expand+')}
+              onMouseLeave={() => onItemHover(null)}
               onClick={() => onItemClick(item)}
-              className="relative w-56 sm:w-64 flex-shrink-0 cursor-pointer group"
+              className="relative w-40 xs:w-48 flex-shrink-0 cursor-pointer group"
             >
               <div className="relative overflow-hidden rounded-xl bg-gradient-to-br from-slate-800 to-slate-900 border border-white/10 shadow-lg">
                 <div className="aspect-[4/3] overflow-hidden">
@@ -441,16 +441,16 @@ function TwoRowHorizontalMarquee({ items, onItemHover, onItemClick }) {
                   />
                 </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/50 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-3">
-                  <span className="text-xs font-medium text-blue-400 uppercase tracking-wider">
+                <div className="absolute bottom-0 left-0 right-0 p-2.5">
+                  <span className="text-[10px] font-medium text-blue-400 uppercase tracking-wider">
                     {item.category}
                   </span>
-                  <h3 className="text-white font-semibold mt-1 text-sm line-clamp-2">
+                  <h3 className="text-white font-semibold mt-1 text-xs line-clamp-2">
                     {item.title}
                   </h3>
                 </div>
-                <div className="absolute top-3 right-3 w-7 h-7 rounded-full bg-blue-600/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <ArrowRight className="w-3.5 h-3.5 text-white" />
+                <div className="absolute top-2.5 right-2.5 w-6 h-6 rounded-full bg-blue-600/90 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  <ArrowRight className="w-3 h-3 text-white" />
                 </div>
               </div>
             </motion.div>
@@ -518,8 +518,8 @@ export default function HeroSection() {
           }}
         />
 
-        <div className="relative z-10 max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 pt-32 lg:pt-40 pb-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="relative z-10 max-w-[1800px] mx-auto px-3 sm:px-4 lg:px-8 pt-28 sm:pt-32 lg:pt-40 pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left Column - Content */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -624,7 +624,7 @@ export default function HeroSection() {
               initial={{ opacity: 0, x: 50 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
-              className="relative h-[600px] lg:h-[700px] overflow-hidden"
+              className="relative h-[500px] sm:h-[600px] lg:h-[700px] overflow-hidden"
             >
               {/* Desktop: 3 Vertical Columns */}
               <div className="hidden lg:flex h-full gap-6">
@@ -652,7 +652,7 @@ export default function HeroSection() {
               </div>
 
               {/* Mobile/Tablet: Two-Row Horizontal Marquee */}
-              <div className="lg:hidden h-full flex items-center px-4">
+              <div className="lg:hidden h-full flex items-center">
                 <TwoRowHorizontalMarquee
                   items={portfolioItems}
                   onItemHover={setCursorMode}
