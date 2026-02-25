@@ -103,27 +103,27 @@ export default function Header() {
     <>
       {/* Header - Fixed Position, Not Sticky Initially */}
       <motion.header
-        className={`fixed left-0 right-0  z-40 transition-all duration-500 ${
+        className={`fixed left-0 right-0 z-40 transition-all duration-500 ${
           isSticky ? 'top-0' : 'top-4'
         }`}
       >
         {/* Glassmorphism Container */}
         <div
-          className={`mx-4 rounded-2xl border transition-all duration-500 ${
+          className={`mx-auto max-w-[calc(100%-2rem)] w-full rounded-2xl border transition-all duration-500 ${
             isSticky
               ? 'bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl shadow-xl shadow-slate-900/15 border-slate-200/60 dark:border-slate-700/60'
               : 'bg-white/60 dark:bg-slate-900/60 backdrop-blur-md border-slate-200/40 dark:border-slate-700/40'
           }`}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-3 sm:px-4">
             <div className="flex items-center justify-between h-16 lg:h-20">
               {/* Left: Mobile Menu Icon */}
-              <div className="lg:hidden">
+              <div className="lg:hidden flex-shrink-0">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   onClick={() => setIsMobileNavOpen(true)}
-                  className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                  className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                   aria-label="Open menu"
                 >
                   <Menu className="w-5 h-5 text-slate-600 dark:text-slate-300" />
@@ -131,16 +131,8 @@ export default function Header() {
               </div>
 
               {/* Center: Logo */}
-              <Link href="/" className="flex-shrink-0">
-                {/* <Image
-                  src="/images/logo.png"
-                  alt="Pixel2Tech"
-                  width={140}
-                  height={45}
-                  className="object-contain transition-transform duration-300 hover:scale-105"
-                  priority
-                /> */}
-                <h1 className='text-2xl font-bold bg-linear-to-r from-blue-700 via-blue-800 to-blue-900 bg-clip-text  text-transparent'>Pixel2Tech</h1>
+              <Link href="/" className="flex-shrink-0 mx-2">
+                <h1 className='text-xl sm:text-2xl font-bold bg-linear-to-r from-blue-700 via-blue-800 to-blue-900 bg-clip-text text-transparent'>Pixel2Tech</h1>
               </Link>
 
               {/* Center: Desktop Navigation */}
@@ -155,14 +147,14 @@ export default function Header() {
               </nav>
 
               {/* Right: Theme Toggle + CTA */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-2 flex-shrink-0">
                 {/* Theme Toggle */}
                 {mounted && (
                   <motion.button
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
                     onClick={toggleTheme}
-                    className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
+                    className="p-2 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors"
                     aria-label="Toggle theme"
                   >
                     <AnimatePresence mode="wait" initial={false}>
@@ -222,20 +214,14 @@ export default function Header() {
                 stiffness: 200,
                 duration: 0.4,
               }}
-              className="fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-white dark:bg-slate-900 z-50 lg:hidden shadow-2xl"
+              className="fixed top-0 left-0 h-full w-72 sm:w-80 max-w-[85vw] bg-white dark:bg-slate-900 z-50 lg:hidden shadow-2xl overflow-y-auto"
             >
               {/* Panel Header */}
-              <div className="flex items-center justify-between p-6 border-b border-slate-200 dark:border-slate-700">
-                <Image
-                  src="/images/logo.png"
-                  alt="Pixel2Tech"
-                  width={120}
-                  height={40}
-                  className="object-contain"
-                />
+              <div className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-700">
+                <h2 className='text-xl font-bold bg-linear-to-r from-blue-700 via-blue-800 to-blue-900 bg-clip-text text-transparent'>Pixel2Tech</h2>
                 <button
                   onClick={handleNavClick}
-                  className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                  className="p-2 rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors flex-shrink-0"
                   aria-label="Close menu"
                 >
                   <X className="w-6 h-6 text-slate-600 dark:text-slate-300" />
@@ -243,7 +229,7 @@ export default function Header() {
               </div>
 
               {/* Navigation Items */}
-              <nav className="flex flex-col p-6 gap-2">
+              <nav className="flex flex-col p-4 gap-2">
                 {NAV_ITEMS.map((item, index) => (
                   <MobileNavItem
                     key={item.label}
@@ -256,7 +242,7 @@ export default function Header() {
               </nav>
 
               {/* CTA Button at Bottom */}
-              <div className="absolute bottom-8 left-6 right-6">
+              <div className="absolute bottom-6 left-4 right-4">
                 <Link
                   href="/contact"
                   onClick={handleNavClick}
